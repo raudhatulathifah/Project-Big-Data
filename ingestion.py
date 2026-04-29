@@ -27,7 +27,7 @@ if not client.bucket_exists(bucket):
 # =========================
 # 3. SIMPAN CSV KE MINIO
 # =========================
-file_path = "online_retail_clean.csv"
+file_path = "hasil_cleansing.csv"
 df.to_csv(file_path, index=False)
 
 client.fput_object(
