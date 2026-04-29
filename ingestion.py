@@ -23,7 +23,7 @@ bucket = "data-lake"
 
 if not client.bucket_exists(bucket):
     client.make_bucket(bucket)
-    
+
 # =========================
 # 3. SIMPAN CSV KE MINIO
 # =========================
@@ -32,7 +32,7 @@ df.to_csv(file_path, index=False)
 
 client.fput_object(
     bucket,
-    "processed/online_retail_clean.csv",
+    "processed/hasil_cleansing.csv",
     file_path
 )
 
