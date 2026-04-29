@@ -1,36 +1,52 @@
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import col, trim, lower
 
 spark = SparkSession.builder \
     .appName("Cleansing Retail Data") \
     .getOrCreate()
 
-df = spark.read.csv("online_retail.csv", header=True, inferSchema=True)
+# ======================
+# LOAD DATA
+# ======================
+df_raw = spark.read.csv("online_retail.csv", header=True, inferSchema=True)
 
-df.show(5)
-df.printSchema()
+print("=== DATA SEBELUM CLEANING ===")
+df_raw.show(5)
+df_raw.printSchema()
 
-from pyspark.sql.functions import col, trim, lower
+# ======================
+# CLEANING
+# ======================
+df_clean = df_raw
 
-# Hapus data tanpa CustomerID
-df = df.dropna(subset=["CustomerID"])
+df_clean = df_clean.dropna(subset=["CustomerID"])
+df_clean = df_clean.filter(col("Quantity") > 0)
+df_clean = df_clean.filter(col("UnitPrice") > 0)
+df_clean = df_clean.dropDuplicates()
+df_clean = df_clean.withColumn("Description", trim(lower(col("Description"))))
 
-# Hapus transaksi aneh
-df = df.filter(col("Quantity") > 0)
-df = df.filter(col("UnitPrice") > 0)
+print("=== DATA SETELAH CLEANING ===")
+df_clean.show(5)
 
-# Hapus duplikat
-df = df.dropDuplicates()
+# ======================
+# PERBANDINGAN
+# ======================
+print("=== PERBANDINGAN JUMLAH DATA ===")
+print("Sebelum:", df_raw.count())
+print("Sesudah:", df_clean.count())
 
-# Rapihin text
-df = df.withColumn("Description", trim(lower(col("Description"))))
+# ======================
+# ANALISIS
+# ======================
+print("=== GROUP BY COUNTRY ===")
+df_clean.groupBy("Country").count().show()
 
-df.show()
+print("=== DESCRIBE ===")
+df_clean.describe().show()
 
-df.groupBy("Country").count().show()
-df.describe().show()
-
-print("=== MENYIMPAN KE CSV (PANDAS) ===")
-
-df.toPandas().to_csv("hasil_cleansing.csv", index=False)
+# ======================
+# SAVE
+# ======================
+df_clean.toPandas().to_csv("hasil_cleansing.csv", index=False)
 
 print("=== SELESAI ===")
