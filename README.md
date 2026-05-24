@@ -4,7 +4,7 @@
 
 This project implements customer segmentation on the Sales ERP module using the **K-Means Clustering** algorithm based on the **RFM (Recency, Frequency, Monetary)** approach with **Apache Spark MLlib**.
 
-The project is part of the final project for the **Big Data and Analytics (CSD60707)** course in the Information Systems Study Program, Faculty of Computer Science, Universitas Brawijaya.
+This project was developed by Group 1 as part of the final project for the **Big Data and Analytics (CSD60707)** course in the Information Systems Study Program, Faculty of Computer Science, Universitas Brawijaya.
 
 The analytical process follows the **Medallion Architecture** concept, to generate business-ready analytical data.
 
@@ -195,7 +195,7 @@ Project-Big-Data/
 | Raudhatul Athifah | Data Engineer |
 | Agatha Jeanetta Arimbi Putri | Data Scientist |
 | Ni Kadek Alya Prishantiputri S. | ML Engineer |
-| Muthia Khalisha | ML Research |
+| Muthia Khalisha | ML Engineer |
 
 ---
 
@@ -229,5 +229,6 @@ Project-Big-Data/
 
 **Course:** Big Data and Analytics (CSD60707)  
 **Class:** SI A  
+**Group:** Group 1
 **Institution:** Information Systems, Faculty of Computer Science, Universitas Brawijaya  
 **Year:** 2026
