@@ -6,7 +6,7 @@ This project implements customer segmentation on the Sales ERP module using the 
 
 The project is part of the final project for the **Big Data and Analytics (CSD60707)** course in the Information Systems Study Program, Faculty of Computer Science, Universitas Brawijaya.
 
-The analytical process follows the **Medallion Architecture** concept, focusing on the implementation of the **Gold Layer** to generate business-ready analytical data.
+The analytical process follows the **Medallion Architecture** concept, to generate business-ready analytical data.
 
 ---
 
