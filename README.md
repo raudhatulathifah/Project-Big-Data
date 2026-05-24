@@ -1,4 +1,4 @@
-# Customer Segmentation using K-Means Clustering with Apache Spark MLlib
+# Customer Segmentation in ERP Sales Module using K-Means Clustering with Apache Spark MLlib
 
 ## 📌 Project Overview
 
@@ -156,15 +156,33 @@ Analytical results were visualized using Microsoft Power BI.
 ## 📂 Repository Structure
 
 ```bash
-├── data/
-├── dashboard-online-retail-clustering/
+Project-Big-Data/
+│
+├── data_lake/
+│   ├── bronze/
+│   │   └── online_retail.csv
+│   │
+│   ├── silver/
+│   │   ├── online_retail_clean.csv
+│   │   └── hasil_no_outlier.csv
+│   │
+│   └── gold/
+│       ├── clustering/
+│       │   └── part-00000-....csv
+│       │
+│       ├── classification/
+│       │   └── final_classification_results.csv
+│       │
+│       └── dashboard-online-retail-cluster.pbix
+│
 ├── docker-compose.yml
 ├── ingestion.py
 ├── cleansing.py
 ├── ml_clustering.ipynb
 ├── ml_classification.ipynb
 ├── test_read_spark.py
-└── hasil_no_outlier.zip
+├── hasil_no_outlier.zip
+└── README.md
 ```
 
 ---
@@ -173,7 +191,7 @@ Analytical results were visualized using Microsoft Power BI.
 
 | Name | Role |
 |---|---|
-| Farida Choirun Nisa | Project Manager • Business Analyst • Dashboard Developer |
+| Farida Choirun Nisa | Project Manager, Business Analyst, Dashboard Developer |
 | Raudhatul Athifah | Data Engineer |
 | Agatha Jeanetta Arimbi Putri | Data Scientist |
 | Ni Kadek Alya Prishantiputri S. | ML Engineer |
